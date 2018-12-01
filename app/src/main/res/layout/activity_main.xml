@@ -29,7 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.179"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/params"
+        app:layout_constraintTop_toBottomOf="@+id/hParams"
         app:layout_constraintVertical_bias="0.008" />
 
     <Button
@@ -47,7 +47,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/params"
+        android:id="@+id/hParams"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -61,7 +61,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/htextView"
         android:layout_width="327dp"
         android:layout_height="229dp"
         android:layout_marginStart="8dp"
