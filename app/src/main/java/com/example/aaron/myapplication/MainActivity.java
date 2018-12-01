@@ -1,6 +1,7 @@
 package com.example.aaron.myapplication;
 
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -10,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
 
 import java.util.ArrayList;
 
@@ -25,15 +27,15 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     homeTextMessage.setText(R.string.title_home);
-                    removeAllelements();
+                    //removeAllelements();
                     return true;
                 case R.id.navigation_dashboard:
                     homeTextMessage.setText(R.string.title_dashboard);
-                    removeAllelements();
+                    //removeAllelements();
                     return true;
                 case R.id.navigation_notifications:
                     homeTextMessage.setText(R.string.title_notifications);
-                    removeAllelements();
+                    //removeAllelements();
                     return true;
             }
             return false;
@@ -52,29 +54,20 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-
         //if (!RootUtil.isDeviceRooted()) {
         if (false){
-
             ShowphoneNotRootedDialogAndExit();
-
-
         }else {
-
             setupGUIandListeners();
         }
-
-
-
     }
     ArrayList<View> GUIelements = new ArrayList<>();
     TextView hParams;
     TextView hTextView;
+    GameSpace gameSpace = new GameSpace(this);
+
     private void setupGUIandListeners() {
 
         Button btn;
@@ -90,30 +83,27 @@ public class MainActivity extends AppCompatActivity {
         GUIelements.add(hTextView);
         GUIelements.add(hParams);
 
+
+
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // v.setBackgroundColor(65);
+               v.setBackgroundColor(Color.GREEN);
                 hTextView.append(hParams.getText());
                 triggerStartEvent(findViewById(R.id.hParams).toString().split(" "));
-
             }
 
             private void triggerStartEvent(String[] args) {
-
-
-
-
             }
-
-
         });
 
     }
 
     private void ShowphoneNotRootedDialogAndExit() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-        builder.setCancelable(false);
+        builder.setCancelable(false)
+        ;
         builder.setTitle("Not rooted");
         builder.setMessage("Phone is not rooted. Exiting...");
         builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
@@ -121,9 +111,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 finish();
                 System.exit(0);
-
-
-
             }
         });
 
