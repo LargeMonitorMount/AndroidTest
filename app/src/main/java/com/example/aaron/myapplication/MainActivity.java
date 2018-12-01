@@ -36,8 +36,6 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
     };
-    TextView textView;
-    Button btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupGUIandListeners() {
+        final TextView textView;
+        Button btn;
 
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
